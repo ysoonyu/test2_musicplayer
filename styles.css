@@ -1,0 +1,530 @@
+/* Global Styles */  
+* {  
+    margin: 0;  
+    padding: 0;  
+    box-sizing: border-box;  
+    font-family: 'Poppins', sans-serif;  
+}  
+
+body {  
+    background: linear-gradient(135deg, #ff7e5f, #feb47b); /* Vibrant gradient background */  
+    color: #333;  
+    display: flex;  
+    justify-content: center;  
+    align-items: center;  
+    flex-direction: column;  
+    min-height: 100vh;  
+    padding: 10px;  
+    overflow-x: hidden;  
+}  
+
+/* Particle Background */  
+#particles-js {  
+    position: fixed;  
+    top: 0;  
+    left: 0;  
+    width: 100%;  
+    height: 100%;  
+    z-index: -1;  
+}  
+
+/* Main Container */  
+.main-container {  
+    display: flex;  
+    flex-wrap: wrap;  
+    justify-content: space-around;  
+    align-items: flex-start;  
+    gap: 20px;  
+    width: 100%;  
+    max-width: 1200px;  
+    padding: 20px;  
+}  
+
+/* Logout Button */  
+.logout-button {  
+    position: absolute;  
+    top: 20px;  
+    right: 20px;  
+    background: #ff3d00;  
+    color: white;  
+    border: none;  
+    border-radius: 5px;  
+    padding: 10px 15px;  
+    cursor: pointer;  
+    transition: background 0.3s ease;  
+}  
+
+.logout-button:hover {  
+    background: #ff6f61;  
+}  
+
+/* Content Section */  
+.content {  
+    display: flex;  
+    flex-direction: column;  
+    align-items: center;  
+    justify-content: center;  
+    width: 100%;  
+    max-width: 400px;  
+    background: rgba(255, 255, 255, 0.9);  
+    border-radius: 10px;  
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);  
+    padding: 20px;  
+}  
+
+/* Login Form Styles */  
+.form {  
+    width: 100%;  
+    padding: 20px;  
+    background: rgba(255, 255, 255, 0.8);  
+    border-radius: 10px;  
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);  
+}  
+
+.input {  
+    margin-bottom: 15px;  
+}  
+
+.input span {  
+    display: block;  
+    margin-bottom: 5px;  
+    color: #333;  
+}  
+
+.input input {  
+    width: 100%;  
+    padding: 10px;  
+    border: 1px solid #ff6f61;  
+    border-radius: 5px;  
+    transition: border-color 0.3s ease;  
+}  
+
+.input input:focus {  
+    border-color: #ff3d00;  
+    outline: none;  
+}  
+
+/* Buttons */  
+input[type="submit"], .login-with-google-btn {  
+    background: linear-gradient(90deg, #ff6f61, #ff3d00);  
+    color: white;  
+    border: none;  
+    border-radius: 30px;  
+    padding: 10px 20px;  
+    cursor: pointer;  
+    transition: background 0.3s ease, transform 0.2s ease;  
+    width: 100%;  
+}  
+
+input[type="submit"]:hover, .login-with-google-btn:hover {  
+    background: linear-gradient(90deg, #ff3d00, #ff6f61);  
+    transform: scale(1.05);  
+}  
+
+.text {  
+    text-align: center;  
+}  
+
+.text a {  
+    color: #ff6f61;  
+    text-decoration: none;  
+}  
+
+.text a:hover {  
+    text-decoration: underline;  
+}  
+
+/* Webcam Section */  
+.detection-section {  
+    background: rgba(255, 255, 255, 0.9);  
+    border-radius: 10px;  
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);  
+    padding: 20px;  
+    width: 100%;  
+    max-width: 400px;  
+    text-align: center;  
+    position: relative;  
+}  
+
+video {  
+    max-width: 100%;  
+    border: 2px solid #ddd;  
+    border-radius: 10px;  
+    margin-top: 10px;  
+}  
+
+/* Canvas for Face Detection */  
+canvas {  
+    position: absolute; /* Overlay canvas on top of the video */  
+    top: 0;  
+    left: 0;  
+    pointer-events: none; /* Prevent mouse events on the canvas */  
+}  
+
+/* Music Player Section */  
+.music-section {  
+    display: none; /* Initially hidden */  
+    background: rgba(255, 255, 255, 0.9);  
+    border-radius: 10px;  
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);  
+    padding: 20px;  
+    width: 100%;  
+    max-width: 400px;  
+    text-align: center;  
+}  
+
+/* Motivational Quotes Section Styles */  
+#motivationalQuotes {  
+    background: linear-gradient(135deg, #84fab0, #8fd3f4);  
+    padding: 1.5rem;  
+    border-radius: 10px;  
+    margin-top: 2rem;  
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);  
+    transition: transform 0.3s ease;  
+}  
+
+#motivationalQuotes h3 {  
+    color: #2d3748;  
+    margin-bottom: 1rem;  
+    font-size: 1.5rem;  
+}  
+
+#quoteText {  
+    font-size: 1.2rem;  
+    color: #2d3748;  
+    font-style: italic;  
+    line-height: 1.6;  
+    padding: 0.5rem;  
+}  
+
+#motivationalQuotes:hover {  
+    transform: translateY(-5px);  
+}  
+
+/* Confession Section Styles */  
+.confession-section {  
+    background: linear-gradient(135deg, #ff6f61, #ff3d00); /* Cheerful gradient */  
+    border-radius: 10px;  
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);  
+    padding: 20px;  
+    transition: transform 0.3s ease, box-shadow 0.3s ease;  
+}  
+
+.confession-section:hover {  
+    transform: scale(1.05);  
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.3);  
+}  
+
+/* Quizizz Section Styles */  
+.quizizz-section {  
+    background: linear-gradient(135deg, #db8b0b, #dc4409); /* Cheerful gradient */  
+    border-radius: 10px;  
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);  
+    padding: 20px;  
+    transition: transform 0.3s ease, box-shadow 0.3s ease;  
+}  
+
+.quizizz-section:hover {  
+    transform: scale(1.05);  
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.3);  
+}  
+
+/* Academic Calendar Styles */  
+.academic-calendar {  
+    background: linear-gradient(135deg, #ff6f61, #ff3d00); /* Cheerful gradient */  
+    border-radius: 10px;  
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);  
+    padding: 20px;  
+    transition: transform 0.3s ease, box-shadow 0.3s ease;  
+}  
+
+.academic-calendar:hover {  
+    transform: scale(1.05);  
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.3);  
+}  
+
+/* Dashboard Container Styles */  
+.dashboard-container {  
+    max-width: 1200px;  
+    margin: 0 auto;  
+    padding: 2rem;  
+    min-height: 100vh;  
+    background-color: #f5f7fa;  
+}  
+
+.welcome-section {  
+    text-align: center;  
+    margin-bottom: 3rem;  
+    padding: 2rem;  
+    background: linear-gradient(135deg, #6366f1, #4f46e5);  
+    color: white;  
+    border-radius: 10px;  
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);  
+}  
+
+.welcome-section h1 {  
+    font-size: 2.5rem;  
+    margin-bottom: 1rem;  
+}  
+
+.dashboard-grid {  
+    display: grid;  
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));  
+    gap: 2rem;  
+    margin-bottom: 2rem;  
+}  
+
+.dashboard-card {  
+    background: white;  
+    padding: 2rem;  
+    border-radius: 10px;  
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);  
+    transition: transform 0.3s ease;  
+}  
+
+.dashboard-card:hover {  
+    transform: translateY(-5px);  
+}  
+
+.dashboard-card h2 {  
+    color: #4f46e5;  
+    margin-bottom: 1rem;  
+}  
+
+.dashboard-card p {  
+    color: #6b7280;  
+}  
+
+.logout-btn {  
+    display: block;  
+    margin: 2rem auto;  
+    padding: 1rem 2rem;  
+    background-color: #ef4444;  
+    color: white;  
+    border: none;  
+    border-radius: 5px;  
+    cursor: pointer;  
+    transition: background-color 0.3s ease;  
+}  
+
+.logout-btn:hover {  
+    background-color: #dc2626;  
+}  
+
+/* To-do List Styles */  
+.todo-card .todo-section {  
+    text-align: center;  
+}  
+
+.todo-btn {  
+    background: #4f46e5;  
+    color: white;  
+    padding: 0.75rem 1.5rem;  
+    border: none;  
+    border-radius: 5px;  
+    cursor: pointer;  
+    margin-top: 1rem;  
+}  
+
+#todoList {  
+    list-style: none;  
+    padding: 0;  
+    text-align: left;  
+    margin-top: 1rem;  
+}  
+
+#todoList li {  
+    display: flex;  
+    justify-content: space-between;  
+    align-items: center;  
+    padding: 0.75rem;  
+    border-bottom: 1px solid #e5e7eb;  
+}  
+
+/* Quick Links Styles */  
+.links-card .links-section {  
+    display: flex;  
+    flex-direction: column;  
+    gap: 1rem;  
+}  
+
+.quick-link {  
+    display: flex;  
+    align-items: center;  
+    gap: 0.75rem;  
+    padding: 1rem;  
+    background: linear-gradient(135deg, #f6d365, #fda085);  
+    color: #333;  
+    text-decoration: none;  
+    border-radius: 8px;  
+    transition: transform 0.3s ease, box-shadow 0.3s ease;  
+}  
+
+.quick-link:hover {  
+    transform: translateX(5px);  
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);  
+}  
+
+.quick-link i {  
+    font-size: 1.25rem;  
+    color: #4f46e5;  
+}  
+
+/* Responsive Styles */  
+@media (max-width: 768px) {  
+    .main-container {  
+        flex-direction: column;  
+        align-items: center;  
+    }  
+
+    .form, .detection-section, .music-section, .todo-section {  
+        max-width: 90%; /* Adjust width for smaller screens */  
+    }  
+
+    .dashboard-grid {  
+        grid-template-columns: 1fr;  
+    }  
+
+    .dashboard-card {  
+        margin-bottom: 1rem;  
+    }  
+}  
+
+/* Additional Responsive Styles */  
+@media (max-width: 768px) {  
+    .dashboard-grid {  
+        grid-template-columns: 1fr;  
+    }  
+}
+
+/* Social Media Icons */  
+.social {  
+    display: flex;  
+    justify-content: center;  
+    margin-top: 20px;  
+}  
+
+.social li {  
+    list-style: none;  
+    margin: 0 10px;  
+}  
+
+.social li img {  
+    width: 30px;  /* Set a specific width */  
+    height: 30px; /* Set a specific height */  
+    transition: transform 0.3s ease;  
+}  
+
+.social li img:hover {  
+    transform: scale(1.1);  /* Enlarge slightly on hover */  
+}
+
+/* Suggested Activities Border Color */  
+.suggested-activities, /* Adjust the class accordingly */  
+.todo-card,   
+.academic-calendar,   
+.confession-section,   
+.quizizz-section {  
+    border: 2px solid #4f46e5; /* Example border color */  
+    border-radius: 10px; /* Rounding the corners */  
+}  
+
+/* Optional hover styles */  
+.suggested-activities:hover, /* Adjust the class accordingly */  
+.todo-card:hover,   
+.academic-calendar:hover,   
+.confession-section:hover,   
+.quizizz-section:hover {  
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.2);  
+}  
+
+/* Music Player Section Styles */  
+.music-player-section {  
+    background: rgba(255, 255, 255, 0.9);  
+    border: 2px solid #4f46e5; /* Use your preferred border color */  
+    border-radius: 10px;  
+    padding: 20px;  
+    margin-top: 20px;  
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);  
+    text-align: center;  
+}  
+
+.music-player-section h2 {  
+    margin-bottom: 10px;  
+    color: #4f46e5;  
+}  
+
+.music-player-section audio {  
+    width: 100%;  
+    outline: none;  
+}
+
+/* To-Do List Styles */  
+.todo-card {  
+    background: rgba(255, 255, 255, 0.9); /* Light background */  
+    border: 2px solid #4f46e5; /* Border color for visibility */  
+    border-radius: 10px;  
+    padding: 20px;  
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);  
+    transition: transform 0.3s ease, box-shadow 0.3s ease;  
+}  
+
+.todo-card:hover {  
+    transform: scale(1.02);  
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.3);  
+}  
+
+/* Academic Calendar Styles */  
+.academic-calendar {  
+    background: rgba(255, 255, 255, 0.9); /* Light background */  
+    border: 2px solid #4f46e5; /* Border color for visibility */  
+    border-radius: 10px;  
+    padding: 20px;  
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);  
+    transition: transform 0.3s ease, box-shadow 0.3s ease;  
+}  
+
+.academic-calendar:hover {  
+    transform: scale(1.02);  
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.3);  
+}  
+
+/* Confession Section Styles */  
+.confession-section {  
+    background: rgba(255, 255, 255, 0.9);  
+    border: 2px solid #4f46e5; /* Border color */  
+    border-radius: 10px;  
+    padding: 20px;  
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);  
+    transition: transform 0.3s ease, box-shadow 0.3s ease;  
+}  
+
+.confession-section:hover {  
+    transform: scale(1.02);  
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.3);  
+}  
+
+/* Suggested Activities Section */  
+.emotion-suggestion {  
+    background: rgba(255, 255, 255, 0.9);  
+    border: 2px solid #4f46e5; /* Border color */  
+    border-radius: 10px;  
+    padding: 20px;  
+    margin-top: 1rem; /* Space above */  
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);  
+}  
+
+.emotion-suggestion h4 {  
+    color: #4f46e5; /* Heading text color */  
+}  
+
+/* Additional Styles for Quick Links and Suggested Activities */  
+.quick-link {  
+    background: linear-gradient(135deg, #f6d365, #fda085);  
+    border: 1px solid #4f46e5; /* Optional border */  
+}  
+
+.quick-link:hover {  
+    transform: translateY(-2px);  
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);  
+}

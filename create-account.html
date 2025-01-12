@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Register</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="styles.css">
+    <script src="particles.js"></script>
+    <link rel="stylesheet"
+        href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.2/css/fontawesome.min.css">
+    <script defer type="module" src="create-account-with-email.js"></script>
+</head>
+
+<body>
+    <section>
+        <div id="particles-js" class="image">
+        </div>
+
+        <div class="content">
+            <div class="form">
+                <h2>Register</h2>
+                <form action="#">
+                    <div class="input">
+                        <span>Email</span>
+                        <input type="text" name="" required id="email">
+                    </div>
+                    <div class="input">
+                        <span>Password</span>
+                        <input type="password" name="" required id="password">
+                    </div>
+                    <div class="input">
+                        <input type="submit" value="Register" name="" id="submit-button">
+                    </div>
+                    <div class="input text">
+                        <p>Have an account?
+                            <a href="index.html">login here.</a>
+                        </p>
+                    </div>
+                </form>
+                
+                <ul class="social">
+                    <li><img src="social/instagram.png"></li>
+                    <li><img src="social/linkedin.png"></li>
+                    <li><img src="social/whatsapp.png"></li>
+                </ul>
+            </div>
+        </div>
+
+    </section>
+</body>
+
+</html>
+
+<script>
+    particlesJS("particles-js", {
+        particles: {
+            number: { value: 180, density: { enable: true, value_area: 800 } },
+            color: { value: "#ff6600" },
+            shape: {
+                type: "circle",
+                stroke: { width: 5, color: "#FFFF" },
+                polygon: { nb_sides: 5 },
+                image: { src: "https://en.wikipedia.org/wiki/Image#/media/File:Image_created_with_a_mobile_phone.png", width: 100, height: 100 }
+            },
+            opacity: {
+                value: 0.5,
+                random: false,
+                anim: { enable: false, speed: 1, opacity_min: 0.1, sync: false }
+            },
+            size: {
+                value: 3,
+                random: true,
+                anim: { enable: false, speed: 40, size_min: 0.1, sync: false }
+            },
+            line_linked: { enable: true, distance: 150, color: "#ff6600", opacity: 0.4, width: 2 },
+            move: {
+                enable: true,
+                speed: 6,
+                direction: "none",
+                random: false,
+                straight: false,
+                out_mode: "out",
+                bounce: false,
+                attract: { enable: false, rotateX: 600, rotateY: 1200 }
+            }
+        },
+        interactivity: {
+            detect_on: "canvas",
+            events: {
+                onhover: { enable: true, mode: "repulse" },
+                onclick: { enable: true, mode: "push" },
+                resize: true
+            },
+            modes: {
+                grab: { distance: 400, line_linked: { opacity: 1 } },
+                bubble: { distance: 400, size: 40, duration: 2, opacity: 8, speed: 3 },
+                repulse: { distance: 200, duration: 0.4 },
+                push: { particles_nb: 4 },
+                remove: { particles_nb: 2 }
+            }
+        },
+        retina_detect: true
+    });
+</script>

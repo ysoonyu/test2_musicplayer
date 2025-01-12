@@ -1,0 +1,339 @@
+!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Dashboard</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="styles.css">
+    <script src="particles.js"></script>
+    <link rel="stylesheet"
+        href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.2/css/fontawesome.min.css">
+    <script type="module" src="dashboard.js" defer></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+</head>
+
+<body>
+    <section>
+        <div id="particles-js" class="image"></div>
+
+        <div class="dashboard-container">
+            <div class="welcome-section">
+                <h1>Welcome to Your Dashboard</h1>
+                <p id="userEmail"></p>
+                <div id="motivationalQuotes" class="dashboard-feature">
+                    <h3>Today's Motivation</h3>
+                    <div id="quoteText" class="quote-text"></div>
+                </div>
+            </div>
+            
+            <!-- Emotion Detection Section -->
+            <div class="dashboard-card emotion-card">
+                <h2>Mood Detection</h2>
+                <div class="emotion-section">
+                    <div class="webcam-container">
+                        <video id="webcam" autoplay playsinline></video>
+                        <canvas id="overlay"></canvas>
+                    </div>
+                    <div class="emotion-info">
+                        <p id="emotionDisplay">Detected Emotion: <span>None</span></p>
+                        <div class="emotion-suggestion">
+                            <h4>Suggested Activities:</h4>
+                            <ul id="suggestions">
+                                <li>Take deep breaths</li>
+                                <li>Listen to calming music</li>
+                                <li>Take a short walk</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="dashboard-grid">
+                <!-- To-do List Card -->
+                <div class="dashboard-card todo-card">
+                    <h2>To-Do List</h2>
+                    <div class="todo-content">
+                        <input type="text" id="todoInput" placeholder="Add new task...">
+                        <button onclick="addTodo()" class="add-todo-btn">Add</button>
+                        <ul id="todoList"></ul>
+                    </div>
+                </div>
+                
+                <!-- Academic Calendar Card -->
+                <div class="dashboard-card calendar-card">
+                    <h2>Academic Calendar</h2>
+                    <div class="academic-calendar">
+                        <a href="YOUR_CALENDAR_LINK" target="_blank" class="feature-link">
+                            <i class="fas fa-calendar"></i>
+                            View Academic Calendar
+                        </a>
+                    </div>
+                </div>
+                
+                <!-- Confession Card -->
+                <div class="dashboard-card confession-card">
+                    <h2>Confessions</h2>
+                    <div class="confession-section">
+                        <textarea id="confessionText" placeholder="Share your thoughts..."></textarea>
+                        <button onclick="submitConfession()" class="confession-btn">Submit</button>
+                    </div>
+                </div>
+                
+                <!-- Quizizz Card -->
+                <div class="dashboard-card quizizz-card">
+                    <h2>Quizizz</h2>
+                    <div class="quizizz-section">
+                        <p>Test your knowledge</p>
+                        <button onclick="startQuiz()" class="quiz-btn">Start Quiz</button>
+                    </div>
+                </div>
+                
+                <!-- Quick Links Card -->
+                <div class="dashboard-card links-card">
+                    <h2>Quick Links</h2>
+                    <div class="links-section">
+                        <a href="https://muet.utm.my/" target="_blank" class="quick-link">
+                            <i class="fas fa-university"></i>
+                            e-Learning UTM
+                        </a>
+                        <a href="https://my.utm.my/" target="_blank" class="quick-link">
+                            <i class="fas fa-user-graduate"></i>
+                            MyUTM
+                        </a>
+                        <a href="https://utmspace.blackboard.com/" target="_blank" class="quick-link">
+                            <i class="fas fa-chalkboard"></i>
+                            UTMSpace Blackboard
+                        </a>
+                        <a href="https://www.youtube.com/" target="_blank" class="quick-link">
+                            <i class="fab fa-youtube"></i>
+                            YouTube
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <button onclick="logout()" class="logout-btn">Logout</button>
+        </div>
+    </section>
+
+    <script>
+        particlesJS("particles-js", {
+            particles: {
+                number: { value: 180, density: { enable: true, value_area: 800 } },
+                color: { value: "#ff6600" },
+                shape: {
+                    type: "circle",
+                    stroke: { width: 5, color: "#FFFF" },
+                    polygon: { nb_sides: 5 },
+                    image: { src: "https://en.wikipedia.org/wiki/Image#/media/File:Image_created_with_a_mobile_phone.png", width: 100, height: 100 }
+                },
+                opacity: {
+                    value: 0.5,
+                    random: false,
+                    anim: { enable: false, speed: 1, opacity_min: 0.1, sync: false }
+                },
+                size: {
+                    value: 3,
+                    random: true,
+                    anim: { enable: false, speed: 40, size_min: 0.1, sync: false }
+                },
+                line_linked: { enable: true, distance: 150, color: "#ff6600", opacity: 0.4, width: 2 },
+                move: {
+                    enable: true,
+                    speed: 6,
+                    direction: "none",
+                    random: false,
+                    straight: false,
+                    out_mode: "out",
+                    bounce: false,
+                    attract: { enable: false, rotateX: 600, rotateY: 1200 }
+                }
+            },
+            interactivity: {
+                detect_on: "canvas",
+                events: {
+                    onhover: { enable: true, mode: "repulse" },
+                    onclick: { enable: true, mode: "push" },
+                    resize: true
+                },
+                modes: {
+                    grab: { distance: 400, line_linked: { opacity: 1 } },
+                    bubble: { distance: 400, size: 40, duration: 2, opacity: 8, speed: 3 },
+                    repulse: { distance: 200, duration: 0.4 },
+                    push: { particles_nb: 4 },
+                    remove: { particles_nb: 2 }
+                }
+            },
+            retina_detect: true
+        });
+
+        // Add this after particles.js initialization
+        document.addEventListener('DOMContentLoaded', function() {
+            // Motivational Quotes
+            const quotes = [
+                "Success is not final, failure is not fatal: it is the courage to continue that counts.",
+                "The future belongs to those who believe in the beauty of their dreams.",
+                "Don't watch the clock; do what it does. Keep going.",
+                "Believe you can and you're halfway there.",
+                "The only way to do great work is to love what you do.",
+                "Your time is limited, don't waste it living someone else's life.",
+                "Everything you've ever wanted is on the other side of fear.",
+                "Success usually comes to those who are too busy to be looking for it.",
+                "The harder you work for something, the greater you'll feel when you achieve it.",
+                "Dream big and dare to fail."
+            ];
+
+            function changeQuote() {
+                const quoteText = document.getElementById('quoteText');
+                if (quoteText) {
+                    const randomQuote = quotes[Math.floor(Math.random() * quotes.length)];
+                    quoteText.innerHTML = "${randomQuote}";
+                    console.log('Quote changed to:', randomQuote); // Debug line
+                } else {
+                    console.log('Quote element not found'); // Debug line
+                }
+            }
+
+            // Change quote every 10 seconds
+            setInterval(changeQuote, 10000);
+            // Initial quote
+            changeQuote();
+        });
+
+        // Function to handle profile image upload
+        document.getElementById('profileImageUpload').addEventListener('change', function(event) {
+            const file = event.target.files[0];
+            if (file) {
+                const reader = new FileReader();
+                reader.onload = function(e) {
+                    document.getElementById('profileImage').src = e.target.result;
+                }
+                reader.readAsDataURL(file);
+            }
+        });
+
+        // Function to update points (this can be modified based on your logic)
+        function updatePoints(newPoints) {
+            const pointsValue = document.getElementById('pointsValue');
+            pointsValue.innerText = newPoints;
+        }
+
+        // Example of updating points
+        updatePoints(100); // Set initial points
+
+        // Webcam and Emotion Detection
+        const video = document.getElementById('webcam');
+        const canvas = document.getElementById('overlay');
+        const ctx = canvas.getContext('2d');
+
+        // Set video dimensions
+        video.width = 640;
+        video.height = 480;
+        canvas.width = 640;
+        canvas.height = 480;
+
+        // Function to start webcam with error handling
+        async function startWebcam() {
+            try {
+                const stream = await navigator.mediaDevices.getUserMedia({ 
+                    video: {
+                        width: 640,
+                        height: 480,
+                        facingMode: 'user' // Use front camera
+                    }
+                });
+                video.srcObject = stream;
+                video.onloadedmetadata = () => {
+                    video.play();
+                    // Start capturing frames after video is ready
+                    setInterval(captureFrame, 1000);
+                };
+            } catch (error) {
+                console.error('Error accessing webcam:', error);
+                document.getElementById('emotionDisplay').innerHTML = 
+                    'Error: Unable to access webcam. Please make sure you have granted camera permissions.';
+            }
+        }
+
+        // Function to capture and process frame
+        function captureFrame() {
+            if (video.readyState === video.HAVE_ENOUGH_DATA) {
+                // Draw video frame to canvas
+                ctx.drawImage(video, 0, 0, canvas.width, canvas.height);
+                const imageData = canvas.toDataURL('image/jpeg', 0.8);
+
+                // Send to backend
+                fetch('http://127.0.0.1:5000/predict', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify({ 
+                        image: imageData.split(',')[1] 
+                    }),
+                })
+                .then(response => {
+                    if (!response.ok) throw new Error('Network response was not ok');
+                    return response.json();
+                })
+                .then(result => {
+                    document.getElementById('emotionDisplay').innerHTML =   
+                    `Detected Emotion: <span>${result.emotion || 'None'}</span>`;
+                    updateSuggestions(result.emotion);
+                })
+                .catch(error => {
+                    console.error('Error:', error);
+                    document.getElementById('emotionDisplay').innerHTML = 
+                        'Error: Could not detect emotion. Please check your connection.';
+                });
+            }
+        }
+
+        // Function to update suggestions based on emotion
+        function updateSuggestions(emotion) {
+            const suggestions = document.getElementById('suggestions');
+            const suggestionsList = {
+                happy: [
+                    'Share your joy with others',
+                    'Take a selfie',
+                    'Listen to upbeat music'
+                ],
+                sad: [
+                    'Take deep breaths',
+                    'Listen to calming music',
+                    'Talk to a friend'
+                ],
+                angry: [
+                    'Practice deep breathing',
+                    'Take a short walk',
+                    'Count to ten slowly'
+                ],
+                neutral: [
+                    'Set a goal for today',
+                    'Do some light stretching',
+                    'Plan your next activity'
+                ]
+            };
+
+            const currentSuggestions = suggestionsList[emotion?.toLowerCase()] || [
+                'Take deep breaths',
+                'Listen to calming music',
+                'Take a short walk'
+            ];
+
+            suggestions.innerHTML = currentSuggestions
+                .map(suggestion => <li>${suggestion}</li>)
+                .join('');
+        }
+
+        // Start everything when DOM is loaded
+        document.addEventListener('DOMContentLoaded', () => {
+            startWebcam();
+            changeQuote();
+        });
+    </script>
+    <script src="js/todo.js"></script>
+</body>
+
+</html>

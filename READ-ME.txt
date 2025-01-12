@@ -1,0 +1,38 @@
+How to use the code?
+
+1. **Prerequisites:**
+   - Ensure you have Visual Studio Code (VSCODE) installed on your system.
+   - Download the provided ZIP file and extract its contents.
+
+2. **Opening Project:**
+   - Open Visual Studio Code.
+   - Drag and drop the extracted folder into the Visual Studio Code interface.
+
+3. **Installing Extension:**
+   - Navigate to the Extensions view in Visual Studio Code.
+   - Download and install an extension named "Live Server."
+
+4. **Launching the Project:**
+   - Locate and click the "Go Live" button in the bottom right corner of Visual Studio Code.
+   - This will launch your project in a web browser.
+
+5. **Testing the Form:**
+   - Interact with the form in the browser to ensure everything is functioning as expected.
+
+6. **Customizing for Your Project:**
+   - Create your Firebase project.
+   - Replace the Firebase credentials in the project with your own.
+
+7. **Firebase Project Settings:**
+   - In your Firebase project settings, enable the Google service provider.
+   - Allow all domains to prevent errors. Adjust this setting in your Firebase project settings.
+
+8. **Video Tutorial:**
+   - For a detailed walkthrough, watch the accompanying video tutorial: [Watch Tutorial](https://www.youtube.com/watch?v=Uhbn1KmiNbg).
+
+9. **Important Note:**
+   - Ensure you have followed the steps to enable the Google service provider and allow all domains in your Firebase project settings.
+
+10. **Acknowledgement:**
+   - Enjoy using the code!
+   - Code credits: Vectorm (YouTube: [youtube.com/vectorm](https://www.youtube.com/vectorm), Buy Me a Coffee: [buymeacoffee.com/vector](https://www.buymeacoffee.com/vectorm))

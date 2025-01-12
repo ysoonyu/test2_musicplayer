@@ -1,0 +1,103 @@
+<!DOCTYPE html>  
+<html lang="en">  
+
+<head>  
+    <title>Login Page with Emotion Detection and Music Player</title>  
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">  
+    <meta charset="UTF-8">  
+    <link rel="stylesheet" href="styles.css">  
+    <script src="particles.js"></script>  
+    <script src="https://kit.fontawesome.com/f8eb2ae40d.js" crossorigin="anonymous"></script>  
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.2/css/fontawesome.min.css">  
+    <script defer type="module" src="login-with-google.js"></script>  
+    <script defer type="module" src="login-with-email.js"></script>  
+    <script src="script123456.js" defer></script> <!-- Link to your script -->  
+    <style>  
+        #webcam-section {  
+            position: relative; /* Enable positioning for child elements */  
+        }  
+        #webcam {  
+            width: 100%; /* Make video responsive */  
+            height: auto;   
+        }  
+        canvas {  
+            position: absolute; /* Overlay canvas on top of the video */  
+            top: 0;  
+            left: 0;  
+            pointer-events: none; /* Prevent mouse events on the canvas */  
+        }  
+    </style>  
+</head>  
+
+<body>  
+    <div id="particles-js"></div>  
+
+    <button id="logout" class="logout-button">Logout</button>  
+
+    <div class="main-container">  
+        <div class="content">  
+            <div class="form">  
+                <h2>Login</h2>  
+                <form action="#">  
+                    <div class="input">  
+                        <span>Email</span>  
+                        <input type="text" required id="email" placeholder="Enter your email">  
+                    </div>  
+                    <div class="input">  
+                        <span>Password</span>  
+                        <input type="password" required id="password" placeholder="Enter your password">  
+                    </div>  
+                    <div class="remember-me">  
+                        <label>  
+                            <input type="checkbox"> Remember me?  
+                        </label>  
+                    </div>  
+                    <div class="input">  
+                        <input type="submit" value="Login" id="submit-button">  
+                    </div>  
+                    <div class="text">  
+                        <p>Don't have an account? <a href="create-account.html">Create one.</a></p>  
+                    </div>  
+                    <div class="input">  
+                        <button type="button" id="google-login" class="login-with-google-btn">  
+                            <i class="fab fa-google"></i> Sign in with Google  
+                        </button>  
+                    </div>  
+                </form>  
+                <ul class="social">  
+                    <li><img src="social/instagram.png" alt="Instagram"></li>  
+                    <li><img src="social/linkedin.png" alt="LinkedIn"></li>  
+                    <li><img src="social/whatsapp.png" alt="WhatsApp"></li>  
+                </ul>  
+            </div>  
+        </div>  
+
+        <div id="webcam-section" class="detection-section">  
+            <h3>Emotion Detection</h3>  
+            <video id="webcam" autoplay playsinline></video>  
+            <canvas id="faceCanvas"></canvas> <!-- Add canvas for drawing -->  
+            <p id="emotionDisplay">Detected Emotion: None</p>  
+        </div>  
+
+        <div id="music-player-section" class="music-section" style="display: none;">  
+            <h3>Emotion-Based Music Player</h3>  
+            <p id="songTitle">Song: None</p>  
+            <audio id="musicPlayer" controls>  
+                <source id="musicSource" type="audio/mp3">  
+                Your browser does not support the audio element.  
+            </audio>  
+        </div>  
+
+        <div id="todoList" class="todo-section">  
+            <h3>To-Do List</h3>  
+            <input type="text" id="todoInput" placeholder="Add a new task...">  
+            <input type="datetime-local" id="timeInput" placeholder="Set due time...">  
+            <button id="addTodoButton">Add</button>  
+            <ul id="todoListItems"></ul>  
+        </div>  
+    </div>  
+
+    <script src="js/todo.js"></script>  
+</body>  
+
+</html>
